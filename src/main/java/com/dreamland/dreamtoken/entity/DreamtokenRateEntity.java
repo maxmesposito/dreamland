@@ -20,7 +20,7 @@ public class DreamtokenRateEntity {
     private Date startDate;
     
     @Column(name = "end_date")
-    private int endDate;
+    private Date endDate;
     
     @Column(name = "exchange_rate_to_currency")
     private BigDecimal exchangeRateToCurrency;

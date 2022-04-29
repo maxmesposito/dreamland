@@ -1,11 +1,14 @@
 package com.dreamland.dreamtoken.entity;
 
+import lombok.Data;
+
 import javax.persistence.*;
 import java.math.BigDecimal;
 import java.util.Date;
 
 @Entity
 @Table(name = "ledger_user", schema = "dreamland", catalog = "")
+@Data
 public class LedgerUserEntity {
 
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -17,7 +20,8 @@ public class LedgerUserEntity {
     private Date insertDate;
     
     @Column(name = "entry_type")
-    private String entryType;
+    @Enumerated(EnumType.STRING)
+    private EntryType entryType;
     
     @Column(name = "token_amount")
     private BigDecimal tokenAmount;
@@ -32,4 +36,9 @@ public class LedgerUserEntity {
     @ManyToOne
     @JoinColumn(name = "id_user", referencedColumnName = "id", nullable = false)
     private UserEntity user;
+
+    public enum EntryType{
+        CONVERT_TO_CURRENCY,
+        FEE_AFTER_CONVERT
+    }
 }

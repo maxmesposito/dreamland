@@ -3,6 +3,9 @@ package com.dreamland.dreamtoken.repository;
 import com.dreamland.dreamtoken.entity.LedgerUserEntity;
 import org.springframework.data.repository.CrudRepository;
 
-public interface LedgerUserRepository extends CrudRepository<LedgerUserEntity, Integer> {
+import java.util.Date;
+import java.util.List;
 
+public interface LedgerUserRepository extends CrudRepository<LedgerUserEntity, Integer> {
+    List<LedgerUserEntity> findByUserIdAndEntryTypeAndInsertDateBefore(Integer idUser, LedgerUserEntity.EntryType entryType, Date beforeDate);
 }
