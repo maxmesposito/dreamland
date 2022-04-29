@@ -9,4 +9,6 @@ import java.util.List;
 public interface LedgerDreamtokenRepository extends CrudRepository<LedgerDreamtokenEntity, Integer> {
 
     List<LedgerDreamtokenEntity> findByUserIdAndIssueDateBetween(Integer idUser, Date startDate, Date endDate);
+
+    List<LedgerDreamtokenEntity> findByConversionToCurrencyDateIsNull();
 }

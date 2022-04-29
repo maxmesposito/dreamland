@@ -29,7 +29,7 @@ public class StatsService {
         List<LedgerDreamtokenEntity> ledgerDreamtokenEntityList = ledgerDreamtokenRepository.findByUserIdAndIssueDateBetween(userId, midnightToday, new Date());
         BigDecimal tempSumToken = BigDecimal.ZERO;
         for (LedgerDreamtokenEntity ledgerDreamtoken : ledgerDreamtokenEntityList){
-            tempSumToken.add(ledgerDreamtoken.getQuantity());
+            tempSumToken = tempSumToken.add(ledgerDreamtoken.getQuantity());
         }
         statsResponseDto.setTokenSumCurrentDay(tempSumToken);
 

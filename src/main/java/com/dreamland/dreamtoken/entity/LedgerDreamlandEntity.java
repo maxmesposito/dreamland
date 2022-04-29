@@ -22,4 +22,8 @@ public class LedgerDreamlandEntity {
     @Column(name = "fee")
     private BigDecimal fee;
 
+    @ManyToOne
+    @JoinColumn(name = "id_dreamtoken", referencedColumnName = "id", nullable = false)
+    private LedgerDreamtokenEntity ledgerDreamtoken;
+
 }
