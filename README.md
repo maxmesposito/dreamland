@@ -5,7 +5,7 @@
 > 
 > ER is dreamland_er.png
 > 
-> <img src="dreamland_er.png">
+> <img src="/dreamland_er.png">
 
 - Database needs to have a solid double-entry ledger to track the tokens and USD (might make sense to read up about ledgers - some great sources here and here). Let's design ledgers for both the tokens and USD
 > I see you have put some references into the gist, I took a first read, but I need to learn more of the functional / financial aspect.
