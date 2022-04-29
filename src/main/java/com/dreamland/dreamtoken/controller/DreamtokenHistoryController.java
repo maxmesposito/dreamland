@@ -1,9 +1,7 @@
 package com.dreamland.dreamtoken.controller;
 
-import com.dreamland.dreamtoken.dto.LedgerDreamtokenDto;
-import com.dreamland.dreamtoken.dto.WonAmount;
+import com.dreamland.dreamtoken.dto.LedgerDreamtokenResponseDto;
 import com.dreamland.dreamtoken.service.DreamtokenService;
-import com.dreamland.dreamtoken.service.WinTokenService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -20,9 +18,9 @@ public class DreamtokenHistoryController {
 
     @GetMapping(path = "/dreamtokens/{userId}")
     public @ResponseBody
-    ResponseEntity<List<LedgerDreamtokenDto>> winNewToken(@PathVariable Integer userId) {
+    ResponseEntity<List<LedgerDreamtokenResponseDto>> dreamtokens(@PathVariable Integer userId) {
 
-        List<LedgerDreamtokenDto> ledgerDreamtokenDtoList = dreamtokenService.historyOfToday(userId);
+        List<LedgerDreamtokenResponseDto> ledgerDreamtokenDtoList = dreamtokenService.historyOfToday(userId);
         return new ResponseEntity(ledgerDreamtokenDtoList, HttpStatus.OK);
     }
 

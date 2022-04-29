@@ -1,6 +1,6 @@
 package com.dreamland.dreamtoken.controller;
 
-import com.dreamland.dreamtoken.dto.WonAmount;
+import com.dreamland.dreamtoken.dto.WonAmountRequestDto;
 import com.dreamland.dreamtoken.service.WinTokenService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -16,7 +16,7 @@ public class WinTokenController {
 
     @PostMapping(path = "/win")
     public @ResponseBody
-    ResponseEntity<Void> winNewToken(@RequestBody WonAmount wonAmount) {
+    ResponseEntity<Void> winNewToken(@RequestBody WonAmountRequestDto wonAmount) {
 
         winTokenService.winNewToken(wonAmount);
         return new ResponseEntity(HttpStatus.OK);

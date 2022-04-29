@@ -7,7 +7,7 @@ import java.math.BigDecimal;
 import java.util.Date;
 
 @Data
-public class LedgerUserDto {
+public class LedgerUserResponseDto {
     private Integer id;
     private Date insertDate;
     private LedgerUserEntity.EntryType entryType;

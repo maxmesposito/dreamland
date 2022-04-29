@@ -1,6 +1,6 @@
 package com.dreamland.dreamtoken.service;
 
-import com.dreamland.dreamtoken.dto.WonAmount;
+import com.dreamland.dreamtoken.dto.WonAmountRequestDto;
 import com.dreamland.dreamtoken.entity.LedgerDreamtokenEntity;
 import com.dreamland.dreamtoken.entity.UserEntity;
 import com.dreamland.dreamtoken.repository.LedgerDreamtokenRepository;
@@ -23,7 +23,7 @@ public class WinTokenService {
     @Autowired
     private UserRepository userRepository;
 
-    public void winNewToken(WonAmount wonAmount) {
+    public void winNewToken(WonAmountRequestDto wonAmount) {
         Optional<UserEntity> optionalUserEntity = userRepository.findById(wonAmount.getIdUser());
         if (optionalUserEntity.isPresent()) {
             BigDecimal totalTokenWonToday = calculateTotalTokenWonTodayByUserId(wonAmount.getIdUser());

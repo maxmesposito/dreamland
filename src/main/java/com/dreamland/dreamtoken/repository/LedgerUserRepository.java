@@ -7,5 +7,6 @@ import java.util.Date;
 import java.util.List;
 
 public interface LedgerUserRepository extends CrudRepository<LedgerUserEntity, Integer> {
+    List<LedgerUserEntity> findByUserId(Integer idUser);
     List<LedgerUserEntity> findByUserIdAndEntryTypeAndInsertDateBefore(Integer idUser, LedgerUserEntity.EntryType entryType, Date beforeDate);
 }

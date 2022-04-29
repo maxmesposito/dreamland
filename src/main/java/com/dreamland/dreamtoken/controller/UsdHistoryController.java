@@ -1,8 +1,7 @@
 package com.dreamland.dreamtoken.controller;
 
-import com.dreamland.dreamtoken.dto.LedgerDreamtokenDto;
-import com.dreamland.dreamtoken.dto.LedgerUserDto;
-import com.dreamland.dreamtoken.service.DreamtokenService;
+import com.dreamland.dreamtoken.dto.LedgerDreamtokenResponseDto;
+import com.dreamland.dreamtoken.dto.LedgerUserResponseDto;
 import com.dreamland.dreamtoken.service.LedgerUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -22,9 +21,9 @@ public class UsdHistoryController {
 
     @GetMapping(path = "/usds/{userId}")
     public @ResponseBody
-    ResponseEntity<List<LedgerDreamtokenDto>> winNewToken(@PathVariable Integer userId) {
+    ResponseEntity<List<LedgerDreamtokenResponseDto>> usds(@PathVariable Integer userId) {
 
-        List<LedgerUserDto> ledgerDreamtokenDtoList = ledgerUserService.historyUntilYesterday(userId);
+        List<LedgerUserResponseDto> ledgerDreamtokenDtoList = ledgerUserService.historyUntilYesterday(userId);
         return new ResponseEntity(ledgerDreamtokenDtoList, HttpStatus.OK);
     }
 
